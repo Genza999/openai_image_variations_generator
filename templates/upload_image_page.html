@@ -1,0 +1,50 @@
+{% load static %}
+{% block content %}
+  <html>
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>Upload Image</title>
+
+        <!-- Google web fonts -->
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+
+        <!-- The main CSS file -->
+        <link rel="stylesheet" href="{% static 'home/upload_image.css' %}">
+    </head>
+
+    <body>
+        {% if not images%}
+        <form id="upload" method="post" enctype="multipart/form-data">
+            <h5 class="card-title">Upload your Image to get variations</h5>
+            <div id="drop">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn">Upload</button>
+            <li>Image must be a Square PNG image</li>
+            <li>Image must be a less than 4MB in size</li>
+
+        </form>
+        {% endif %}
+
+        <div class="container">
+            {% if images %}
+            <u><h5 class="card-title">Generated image variations</h5></u>
+            {% endif %}
+            <div class="columns">
+                <div class="column">
+                    {% for image in images %}
+                        <div class="card">
+                            <a href="">
+                            <img src="{{image.url}}" alt="" />
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+{% endblock %}
