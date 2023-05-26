@@ -1,0 +1,56 @@
+Watching for file changes with StatReloader
+[10/Jul/2023 07:53:58] "GET / HTTP/1.1" 200 1231
+[10/Jul/2023 07:53:58] "GET /static/home/upload_image.css HTTP/1.1" 200 3194
+[10/Jul/2023 07:53:59] "GET /static/img/border-image.png HTTP/1.1" 404 1819
+Not Found: /favicon.ico
+[10/Jul/2023 07:54:00] "GET /favicon.ico HTTP/1.1" 404 2220
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/kisekka/.pyenv/versions/image-variations/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/kisekka/.pyenv/versions/image-variations/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kisekka/Desktop/openai_image_variations_generator/variations/views.py", line 12, in upload_image_page
+    response = open_ai_image_variations(request.FILES["image"])
+  File "/home/kisekka/Desktop/openai_image_variations_generator/variations/utils.py", line 12, in open_ai_image_variations
+    response = openai.Image.create_variation(
+  File "/home/kisekka/.pyenv/versions/image-variations/lib/python3.10/site-packages/openai/api_resources/image.py", line 122, in create_variation
+    response, _, api_key = requestor.request("post", url, files=files)
+  File "/home/kisekka/.pyenv/versions/image-variations/lib/python3.10/site-packages/openai/api_requestor.py", line 230, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/home/kisekka/.pyenv/versions/image-variations/lib/python3.10/site-packages/openai/api_requestor.py", line 624, in _interpret_response
+    self._interpret_response_line(
+  File "/home/kisekka/.pyenv/versions/image-variations/lib/python3.10/site-packages/openai/api_requestor.py", line 687, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.AuthenticationError: Incorrect API key provided: YOUR API************ENAI. You can find your API key at https://platform.openai.com/account/api-keys.
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/kisekka/.pyenv/versions/image-variations/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/kisekka/.pyenv/versions/image-variations/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/kisekka/Desktop/openai_image_variations_generator/variations/views.py", line 12, in upload_image_page
+    response = open_ai_image_variations(request.FILES["image"])
+  File "/home/kisekka/Desktop/openai_image_variations_generator/variations/utils.py", line 12, in open_ai_image_variations
+    response = openai.Image.create_variation(
+  File "/home/kisekka/.pyenv/versions/image-variations/lib/python3.10/site-packages/openai/api_resources/image.py", line 122, in create_variation
+    response, _, api_key = requestor.request("post", url, files=files)
+  File "/home/kisekka/.pyenv/versions/image-variations/lib/python3.10/site-packages/openai/api_requestor.py", line 230, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/home/kisekka/.pyenv/versions/image-variations/lib/python3.10/site-packages/openai/api_requestor.py", line 624, in _interpret_response
+    self._interpret_response_line(
+  File "/home/kisekka/.pyenv/versions/image-variations/lib/python3.10/site-packages/openai/api_requestor.py", line 687, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.AuthenticationError: Incorrect API key provided: YOUR API************ENAI. You can find your API key at https://platform.openai.com/account/api-keys.
+[10/Jul/2023 07:54:33] "POST / HTTP/1.1" 500 115404
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+July 10, 2023 - 07:53:39
+Django version 4.2.1, using settings 'image_variations.settings'
+Starting development server at http://127.0.0.1:9000/
+Quit the server with CONTROL-C.
+
